@@ -1,60 +1,66 @@
-# N = int(input())
-
-# bin_num = bin(N)
-
-# print(bin_num)
-
-# # 移動可能回数
-# # Qにはその位置から移動できる場所を入れる
-# # - 前に移動したとき
-# # - 後に移動したとき
-# queue =
-
-# # 移動した回数を保存
-# count =
-
-# # 動したか、していないかを保存
-# move =
-
 from collections import deque
-r, c = map(int, input().split())
-sy, sx = map(int, input().split())
-gy, gx = map(int, input().split())
-sy -= 1
-sx -= 1
-gy -= 1
-gx -= 1
-grid = [input() for _ in range(r)]
+N = int(input())
 
-# print(grid)
-q = deque()
-q.append((sy, sx))
 
-INF = '#'  #1<<60 # 2: 0001 1<<3: 1000
-dist = [[INF for _ in range(c)] for __ in range(r)]
-dist[sy][sx] = 0
+def movable_distance(num):
+    "2進数で表現した時の1のビット数 => 前後に移動できる距離"
+    # print(f'num:{num}, b:{bin(num)}')
+    # 2進数表示した場合の1の数を数える
+    return bin(num).count("1")
 
-dy = (0, 1, 0, -1)
-dx = (1, 0, -1, 0)
 
-while (len(q) > 0):
-    now = q.popleft()
-    y, x = now
+def bit():
+    que = deque()
+    que.append(1)  #探索するマス
+    # マスの数を表す整数N(1<N<10000)が与えられます。
+    # trout = [-1] * (10**5)
+    trout = deque([0] * (N + 1))
 
-    for di in range(4):
-        ny = y + dy[di]
-        nx = x + dx[di]
+    # 1から開始のマス
+    trout[1] = 1
 
-        if (ny < 0 or ny >= r or nx < 0 or nx >= c): continue
-        if (grid[ny][nx] == '#'): continue
-        if (dist[ny][nx] != INF): continue
+    while (len(que) > 0):
+        print(f'#### {que}')
+        now = que.popleft()  #現在のマス目
 
-        dist[ny][nx] = dist[y][x] + 1
-        q.append((ny, nx))
+        # debug
+        # for i in range(N):
+        #     if (i + 1 == now):
+        #         print(f'*{trout[i + 1]}|', end='')  #現在のマス目
+        #     elif (now == N):
+        #         print(f'gaol => {trout[now]}', end='')  #終了
+        #         break
+        #     elif (trout[i + 1] != 0):
+        #         print(f'{trout[i + 1]}|', end='')  #探索済マス
+        #     else:
+        #         print('-|', end='')  #未探索マス
+        # print()
 
-for i in range(r):
-    for j in range(c):
-        print(dist[i][j], end='')
-    print()
+        if now == N:
+            return trout[N]  #目的の最小移動数
 
-print(dist[gy][gx])
+        movecnt = movable_distance(now)  #現在のマス目を２進数に変換した時の1の数
+        # print(f'now {now}, movecnt {movecnt}')
+
+        back = now - movecnt  #後ろのマスに移動する
+        forward = now + movecnt  #前のマスに移動する
+
+        if (back > 0 and trout[back] == 0):
+            que.append(back)  #探索を行うためキューに入れる
+            trout[back] = trout[now] + 1  #移動した先に移動数の最小値を記録
+            # print(
+            #     f'マス{back}への移動数の最小値を記録: {trout[back]}, 探索を行うための位置をappend: {back}'
+            # )
+
+        if (forward <= N and trout[forward] == 0):
+            que.append(forward)  #探索を行うためキューに入れる
+            trout[forward] = trout[now] + 1  #移動した先に移動数の最小値を記録
+            # print(
+            #     f'マス{forward}への移動数の最小値を記録: {trout[forward]}, 探索を行うための位置をappend: {forward}'
+            # )
+
+    return -1
+
+
+if __name__ == "__main__":
+    print(bit())
