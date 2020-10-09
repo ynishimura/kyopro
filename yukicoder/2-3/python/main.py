@@ -13,14 +13,13 @@ def bit():
     que = deque()
     que.append(1)  #探索するマス
     # マスの数を表す整数N(1<N<10000)が与えられます。
-    # trout = [-1] * (10**5)
     trout = deque([0] * (N + 1))
 
     # 1から開始のマス
     trout[1] = 1
 
     while (len(que) > 0):
-        print(f'#### {que}')
+        # print(f'#### {que}')
         now = que.popleft()  #現在のマス目
 
         # debug
