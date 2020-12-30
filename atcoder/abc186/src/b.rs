@@ -2,7 +2,10 @@
 // Blocks on Grid
 
 
+// 最小値を選び、その数に置き換えていく。
+// なぜ最小値を基準とするかは取り除くことしかできないため
 
+// 二次元配列を用意する
 use proconio::{fastout, input};
  
 #[fastout]
@@ -19,7 +22,6 @@ fn main() {
     for i in 0..h {
         for j in 0..w {
             tot += a[i][j];
-            println!("{}", a[i][j]);
 
             min_a = if a[i][j] < min_a { a[i][j] } else { min_a };
             

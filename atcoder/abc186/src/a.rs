@@ -18,5 +18,5 @@ fn main() {
         w: i32,
     }
 
-    println!("{}", n / w);
+    println!("{}", n / w); //切り捨てになる
 }
