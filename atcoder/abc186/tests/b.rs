@@ -22,7 +22,8 @@ fn sample1() {
 #[test]
 fn sample2() {
     let testdir = TestDir::new(BIN, "");
-    let output = testdir.cmd()
+    let output = testdir
+        .cmd()
         .output_with_stdin(
             r#"3 3
 4 3 6
