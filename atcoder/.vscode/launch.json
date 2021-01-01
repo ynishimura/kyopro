@@ -7,19 +7,6 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Cargo launch",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--lib"
-                ]
-            },
-            "program": "${cargo:program}",
-            "args": []
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
             "name": "Cargo test",
             "cargo": {
                 "args": [
@@ -29,15 +16,24 @@
                 ]
             },
             "program": "${cargo:program}",
+            // "program": "${workspaceFolder}/abc186/",
+            // "cwd": "${workspaceFolder}",
             "args": []
         },
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
-            "program": "${workspaceFolder}/<your program>",
-            "args": [],
-            "cwd": "${workspaceFolder}"
+            "name": "Cargo launch",
+            "cargo": {
+                "args": [
+                    "run",
+                    "-p=abc186",
+                    "--bin=a"
+                ]
+            },
+            "program": "${cargo:program}",
+            "cwd": "${workspaceFolder}/${relativeFileDirname}",
+            "args": ["RUST_BACKTRACE=1"]
         }
     ]
 }

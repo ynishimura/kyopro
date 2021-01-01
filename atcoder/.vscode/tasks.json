@@ -1,0 +1,44 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "echo",
+        "type": "shell",
+        "command": "echo ${workspaceFolder}"
+      },
+      {
+        "label": "check variable",
+        "type": "shell",
+        "command": "echo",
+        "args" : ["${fileDirname}"]
+      },
+      {
+        "label": "cargo run",
+        "type": "shell",
+        "command": "cargo",
+        "args": ["run", "-p=${input:package}", "--bin=${input:bin}"]
+      }
+    ],
+    "inputs": [
+      {
+        "type": "promptString",
+        "id": "package",
+        "description": "What is package?",
+        "default": "abc186"
+      },
+      {
+        "type": "pickString",
+        "id": "bin",
+        "description": "what is rust bin?",
+        "options": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+        ],
+        "default": "a"
+      }
+    ]
+  }
