@@ -1,3 +1,6 @@
+// https://atcoder.jp/contests/abc186/tasks/abc186_e
+// E Throne
+
 /** 
  * 玉座にたどり着けないときを求める
  
