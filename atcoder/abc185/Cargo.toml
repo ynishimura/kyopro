@@ -18,3 +18,7 @@ whiteread = "=0.5.0"
 [[bin]]
 name = "a"
 path = "src/a.rs"
+
+[[bin]]
+name = "b"
+path = "src/b.rs"
