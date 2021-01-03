@@ -10,7 +10,7 @@
 use proconio::*;
 use std::cmp::min;
 
-fn main() {
+fn battery_cap_check() -> bool {
     input! {
         n: i32,
         m: i32,
@@ -22,8 +22,7 @@ fn main() {
     for (t_in, t_out) in arr {
         battery -= t_in - time; // バッテリーが減る
         if battery <= 0 {
-            println!("No");
-            return;
+            return false;
         }
         // battery = std::cmp::min(n, battery + t_out - t_in);
         battery += t_out - t_in; // バッテリーが増える
@@ -32,8 +31,13 @@ fn main() {
     }
     battery -= t - time; //最後の残りの区間分バッテリー減らす
     if battery <= 0 {
-        println!("No");
+        false
     } else {
-        println!("Yes");
+        true
     }
+}
+
+fn main() {
+    let ans = if battery_cap_check() { "Yes" } else { "No" };
+    println!("{}", ans);
 }
