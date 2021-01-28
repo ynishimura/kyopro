@@ -12,6 +12,14 @@ item1 item2 score
 注意：LL系の言語だと工夫しないといけないかもしれません。
 
 ---
+制約
+2<=N<=9
+1<=M<=N*(N-1)
+0<=item1,item2<N
+item1!=item2
+1<=score<=10000
+
+---
 https://note.nkmk.me/python-math-factorial-permutations-combinations/
 リストから順列を生成、列挙: itertools.permutations()
 総数だけでなく、リスト（配列）などから順列を生成して列挙することも可能。
@@ -29,6 +37,12 @@ https://note.nkmk.me/python-math-factorial-permutations-combinations/
 3 2 100
 2 1 100
 1 0 100
+
+入力が4 => 3 2 1 0
+と並べた時の300点が最大となる。
+
+0 1 2 3
+と並べた時、適用される数は6個だが、21点となり、最高点は得られないことに注意せよ。
 """
 
 import itertools
@@ -54,7 +68,9 @@ def resolve(table):
         for i in range(1, len(val)):
             for j in range(0, i):
                 # スコア表に沿って得点を追加していく
-                score += table[val[j]][val[i]]
+                item1 = val[j]
+                item2 = val[i]
+                score += table[item1][item2]
         # 比較して大きい得点を格納
         max_score = max(score, max_score)
     return max_score
