@@ -11,5 +11,17 @@ fn main() {
         k: usize, // ジャンプできる足場
         hn: [i64; n], // 足場の高さ
     }
-    println!("{}", n);
+    let mut dp = vec![std::i64::MAX; n];
+    dp[0] = 0; //はじめはコスト０からスタートする
+
+    for i in 0..n {
+        for j in 1..=k {
+            if i + j >= n {
+                continue;
+            }
+            dp[i + j] = min(dp[i + j], dp[i] + (h[i] - h[i + j]).abs());
+        }
+    }
+
+    println!("{}", dp[n - 1]);
 }
