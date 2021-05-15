@@ -1,4 +1,16 @@
 # https://atcoder.jp/contests/abc201/submissions/22620837
+
+# 方針
+# 全探索する
+# 0000 ~ 9999
+# 与えられた判定文字列と比較して判定する
+# はじめに
+# 10個の配列
+# [False, ...]
+# forで全探索 2021のとき
+#   0      1    2      3      4...
+# [True, True, True, False, ....]
+# 与えられた判定文字列と比較
 S = input()
 
 # xxxxx?xxxo
