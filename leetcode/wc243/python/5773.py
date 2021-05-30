@@ -1,3 +1,7 @@
+"""
+https://leetcode.com/contest/weekly-contest-243/problems/maximum-value-after-insertion/
+"""
+
 class Solution:
     def maxValue(self, n: str, x: int) -> str:
         
