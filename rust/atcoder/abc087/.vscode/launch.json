@@ -1,0 +1,156 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'abc087-a'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=abc087-a",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-a",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'abc087-a'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=abc087-a",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-a",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'abc087-b'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=abc087-b",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-b",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'abc087-b'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=abc087-b",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-b",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'abc087-c'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=abc087-c",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-c",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'abc087-c'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=abc087-c",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-c",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'abc087-d'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=abc087-d",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-d",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'abc087-d'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=abc087-d",
+                    "--package=abc087"
+                ],
+                "filter": {
+                    "name": "abc087-d",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}
