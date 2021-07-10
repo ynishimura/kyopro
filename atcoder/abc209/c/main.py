@@ -1,5 +1,17 @@
 """
-3 3 4 4
+3 3 4 4 のとき
+
+3-0 * 3-1 * (3-2)+1 * (3-3)+1
+3   *  2  * 2       * 1
+=> 12
+
+
+3 2 4 4　のとき
+
+3-0 * 2-1 * (3-2)+(4-3) * (3-3)+(4-3) 
+
+3   * 1   *  2          * 1
+=> 6
 
 同じ数字はだめ
 1 1 3 4
@@ -16,3 +28,18 @@
 
 N = int(input())
 C = list(map(int, input().split()))
+base = C[0]
+total = base
+for idx, i in enumerate(C):
+    # print(idx, i, total)
+    if idx == 0:
+        continue
+
+    if base < C[idx]:
+        sabun = C[idx] - base
+        print(idx, sabun)
+        total *= (base - idx) + (C[idx] - base)
+    else:
+        total *= C[idx] - idx
+
+print(total % (10**9+7))
