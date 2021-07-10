@@ -28,18 +28,25 @@
 
 N = int(input())
 C = list(map(int, input().split()))
-base = C[0]
-total = base
-for idx, i in enumerate(C):
-    # print(idx, i, total)
-    if idx == 0:
-        continue
+C.sort()
+total = C[0]
 
-    if base < C[idx]:
-        sabun = C[idx] - base
-        print(idx, sabun)
-        total *= (base - idx) + (C[idx] - base)
-    else:
-        total *= C[idx] - idx
+for i in range(1, N):
+    total *= (C[i] - i)
+    total %= (10**9 + 7)
 
-print(total % (10**9+7))
+print(total)
+
+# for idx, i in enumerate(C):
+#     # print(idx, i, total)
+#     if idx == 0:
+#         continue
+
+#     if base < C[idx]:
+#         sabun = C[idx] - base
+#         print(idx, sabun)
+#         total *= (base - idx) + (C[idx] - base)
+#     else:
+#         total *= C[idx] - idx
+
+# print(total % (10**9+7))
