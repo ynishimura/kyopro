@@ -17,10 +17,13 @@ for j in range(len(target)):
             dp[i+1][j+1] = dp[i][j+1]
 
 print(dp[len(S)][len(target)])
+# s = input()
+# t = "chokudai"
+# m = len(t)
+# dp = [0]*(m+1)
+# dp[0] = 1
 # for c in s:
-#     for i in range(9):
-#         if chokudai[i] == c:
-#             dp[i] += dp[i-1]
-#             dp[i] %= MOD
-
+# 	for i in range(m):
+# 		if t[i] == c:
+# 			dp[i+1] = (dp[i] + dp[i+1]) % (10**9+7)
 # print(dp[-1])
